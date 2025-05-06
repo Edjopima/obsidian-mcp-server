@@ -21,6 +21,10 @@ def build_daily_note_content(data: DailyNoteData):
   with open(template_path, "r") as file:
     template = file.read()
 
+  data["dayPlanner"] = ["- " + line for line in data["dayPlanner"]]
+  data["tasks"] = ["- [ ]" + line for line in data["tasks"]]
+  data["logs"] = ["- " + line for line in data["logs"]]
+
   # build the variables for the template
   day_planner = "\n".join(data["dayPlanner"])
   tasks = "\n".join(data["tasks"])
@@ -30,7 +34,7 @@ def build_daily_note_content(data: DailyNoteData):
   content = template.format(day_planner=day_planner, tasks=tasks, logs=logs)
   return content
 
-def create_daily_note(data: DailyNoteData):
+def save_daily_note(data: DailyNoteData):
     # create the daily note
     daily_notes_path = get_daily_note_path()
     # get the current date
@@ -38,6 +42,8 @@ def create_daily_note(data: DailyNoteData):
     # format the date
     date_str = current_date.strftime("%A %d %B %Y")
     # create the daily note
-    daily_note_path = os.path.join(daily_notes_path, f"{date_str}.md")
+    daily_note_path = os.path.join('./', f"{date_str}.md")
     # return the path to the daily note
+    with open(daily_note_path, 'w') as f:
+        f.write(data)
     return daily_note_path
