@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from server import mcp
 from tools.create_daily_note_tool import create_daily_note
+from tools.create_inbox_note_tool import create_inbox_note
 
 load_dotenv()
 

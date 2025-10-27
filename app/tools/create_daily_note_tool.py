@@ -27,10 +27,9 @@ def create_daily_note(day_planner: list[str], tasks: list[str], logs: list[str])
 
     # create the daily note in the main folder of this project
     save_daily_note(content)
-    
+
     # build a context to pass the llm the markdown template to send it to the user
-    context = f""" Tell the user that you can create a daily note for them.
-    Here is the markdown template:
+    context = f""" Tell the user you created the daily note and here is the markdown template:
     {content}
     """
     return context
