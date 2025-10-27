@@ -1,10 +1,22 @@
 [project]
 name = "obsidian-mcp-server"
 version = "0.1.0"
-description = "Add your description here"
+description = "MCP server that converts handwritten notes into structured Obsidian markdown files using AI vision capabilities"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "mcp[cli]>=1.7.1",
     "python-dotenv>=1.1.0",
+]
+authors = [
+    {name = "Eduardo Pimentel", email = "tu-email@example.com"}
+]
+keywords = ["obsidian", "mcp", "notes", "ai", "markdown", "automation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Text Processing :: Markup :: Markdown",
+    "Topic :: Office/Business :: Groupware",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
 ]
